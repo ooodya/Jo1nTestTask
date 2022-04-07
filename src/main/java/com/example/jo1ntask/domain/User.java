@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @Setter
 @Getter
+@EqualsAndHashCode(exclude = "id")
 public class User {
 
     @Id
@@ -29,5 +30,12 @@ public class User {
     private String password;
     private String description;
 
+    public User(String firstName, String lastName, String login, String password, String description) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.description = description;
+    }
 }
 
