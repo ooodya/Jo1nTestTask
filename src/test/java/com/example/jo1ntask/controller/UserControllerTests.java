@@ -107,14 +107,14 @@ public class UserControllerTests {
     @Test
     @SneakyThrows
     public void userCanBeDeleted() {
-        User user = userRepository.findById(1L).orElse(null);
+        User user = userRepository.findById(2L).orElse(null);
         assertNotNull(user);
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/users/1")
+        mockMvc.perform(MockMvcRequestBuilders.delete("/users/2")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
-        user = userRepository.findById(1L).orElse(null);
+        user = userRepository.findById(2L).orElse(null);
 
         assertNull(user);
     }
